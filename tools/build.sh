@@ -40,11 +40,11 @@ fi
 
 # ----- main -----
 
-for file in "docs/css/theme.css" "docs/css/skylighting-solarized-theme.css"; do
-  if ! [ -f "$file" ]; then
-    2>&1 echo "$0: warning: CSS theme file is missing: $file (will 404 when serving)"
-  fi
-done
+# for file in "docs/css/theme.css" "docs/css/skylighting-solarized-theme.css"; do
+#   if ! [ -f "$file" ]; then
+#     2>&1 echo "$0: warning: CSS theme file is missing: $file (will 404 when serving)"
+#   fi
+# done
 
 dest_dir="$(dirname "$dest")"
 mkdir -p "$dest_dir"
@@ -60,6 +60,10 @@ pandoc \
   --css="$css_rel_path/theme.css" \
   --css="$css_rel_path/skylighting-paper-theme.css" \
   --css="$css_rel_path/theme-additions.css" \
+  --include-after-body="public/scripts/scroll.js" \
+  --include-after-body="public/scripts/toc-active.js" \
+  --include-after-body="public/scripts/close-toc.js" \
+  --include-after-body="public/scripts/copy-heading.js" \
   --toc \
   --wrap=none \
   --output "$dest" \

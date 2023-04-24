@@ -45,18 +45,16 @@
 </header>
 
 <nav id="TOC" role="doc-toc">
-    <label for="contents">
-    <svg width="32" height="24" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
-      <g fill="currentColor">
-        <rect x="5" y="4" width="30" height="2" rx="1" ry="1" />
-        <rect x="5" y="13.5" width="30" height="2" rx="1" ry="1" />
-        <rect x="5" y="23" width="30" height="2" rx="1" ry="1" />
-      </g>
+    <input type="checkbox" id="contents">
+  <label for="contents">
+    <h4 id="toc-heading">
+    Contents
+    <svg id="toc-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2.08926 3.16074C1.76382 2.83531 1.23618 2.83531 0.910744 3.16074C0.585307 3.48618 0.585307 4.01382 0.910744 4.33926L2.08926 3.16074ZM6 8.25L5.41074 8.83926C5.73618 9.16469 6.26382 9.16469 6.58926 8.83926L6 8.25ZM11.0893 4.33926C11.4147 4.01382 11.4147 3.48618 11.0893 3.16074C10.7638 2.83531 10.2362 2.83531 9.91074 3.16074L11.0893 4.33926ZM0.910744 4.33926L5.41074 8.83926L6.58926 7.66074L2.08926 3.16074L0.910744 4.33926ZM6.58926 8.83926L11.0893 4.33926L9.91074 3.16074L5.41074 7.66074L6.58926 8.83926Z" fill="currentColor"/>
     </svg>
+    </h4>
   </label>
-  <input type="checkbox" id="contents">
   <div id="toc-container">
-    <h4 id="toc-heading">Contents</h4>
     <ul>
     <li><a href="#features" id="toc-features">Features</a></li>
     <li><a href="#usage" id="toc-usage">Usage</a>
@@ -173,7 +171,29 @@
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
+    // Non-essential if user has JavaScript off. Just hides TOC button on scroll.
+    const nav = document.querySelector("nav");
+    let lastScrollTop = 0;
+    const min_diff_px = 32;
+    
+    function didScroll() {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScrollTop < lastScrollTop) {
+            nav.classList.add("scrolled-up");
+            nav.classList.remove("scrolled-down");
+            lastScrollTop = currentScrollTop;
+        } else if (currentScrollTop > lastScrollTop + min_diff_px) {
+            nav.classList.remove("scrolled-up");
+            nav.classList.add("scrolled-down");
+            lastScrollTop = currentScrollTop;
+        }
+    }
+
+    window.addEventListener("scroll", didScroll);
+});
+  
+document.addEventListener("DOMContentLoaded", function () {
     const headings = document.querySelectorAll('main h1, main h2, main h3, main h4');
 
     function handleIntersection(entries) {
@@ -209,6 +229,50 @@
         target: heading
     }));
     handleIntersection(initialEntries);
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const nav_anchors = document.querySelectorAll('nav a');
+    const contents_checkbox = document.getElementById('contents');
+  
+    nav_anchors.forEach(anchor => {
+      anchor.addEventListener('click', function(event) {
+        // Do not stop normal functionality of the anchor tag
+        // event.preventDefault();
+  
+        // Uncheck the input with id "contents"
+        if (contents_checkbox && contents_checkbox.type === 'checkbox') {
+          contents_checkbox.checked = false;
+        }
+      });
+    });
+  });
+  
+/* JavaScript */
+document.addEventListener('DOMContentLoaded', function() {
+  const headings = document.querySelectorAll('main h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]');
+
+  headings.forEach(heading => {
+    heading.addEventListener('click', function(event) {
+      const target = event.target;
+
+      // Check if the target is the heading itself or the paperclip icon
+      if (target.tagName.toLowerCase().startsWith('h') && target.hasAttribute('id')) {
+        const headingId = target.getAttribute('id');
+        const url = new URL(window.location.href);
+        url.hash = headingId;
+
+        // Copy the URL with the heading ID to the clipboard
+        navigator.clipboard.writeText(url.toString()).then(
+          function() {
+            console.log('Heading URL copied to clipboard:', url.toString());
+          },
+          function(err) {
+            console.error('Failed to copy the heading URL:', err);
+          }
+        );
+      }
+    });
+  });
 });
 </script>
 
