@@ -8,7 +8,8 @@
   <meta name="dcterms.date" content="2021-06-26" />
   <title>Features</title>
   <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/skylighting-solarized-theme.css" />
+  <link rel="stylesheet" href="../css/skylighting-paper-theme.css" />
+  <link rel="stylesheet" href="../css/theme-additions.css" />
   <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
@@ -29,47 +30,62 @@
 <body>
 
 <header>
-<h1 class="title">Features</h1>
-<blockquote class="metadata">
-<p class="subtitle">Documentation for how to make the most of this theme.</p>
-<p class="author">
+  <h1 class="title">Features</h1>
+  <p class="subtitle">Documentation for how to make the most of this theme.</p>
+<div class="metadata">
+  <div class="author">
+  <span class="label">Author</span>
       <a href="https://github.com/jez"><span class="citation" data-cites="jez">@jez</span></a>
-  </p>
-<p class="date before-toc"><time datetime="2021-06-26">2021-06-26</time></p>
-</blockquote>
+    </div>
+<div class="date">
+  <span class="label">Published</span>
+  <time datetime="2021-06-26">2021-06-26</time>
+</div>
+</div>
 </header>
 
 <nav id="TOC" role="doc-toc">
     <a href="..">← Return home</a><br>
-    <strong>Contents</strong><label for="contents">⊕</label>
+    <label for="contents">
+    <svg width="32" height="24" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+      <g fill="currentColor">
+        <rect x="5" y="4" width="30" height="2" rx="1" ry="1" />
+        <rect x="5" y="13.5" width="30" height="2" rx="1" ry="1" />
+        <rect x="5" y="23" width="30" height="2" rx="1" ry="1" />
+      </g>
+    </svg>
+  </label>
   <input type="checkbox" id="contents">
-  <ul>
-  <li><a href="#document-metadata" id="toc-document-metadata">Document metadata</a></li>
-  <li><a href="#assorted-prose-elements" id="toc-assorted-prose-elements">Assorted prose elements</a></li>
-  <li><a href="#side-notes-and-margin-notes" id="toc-side-notes-and-margin-notes">Side notes and margin notes</a>
-  <ul>
-  <li><a href="#choosing-a-side-note-anchor-spot" id="toc-choosing-a-side-note-anchor-spot">Choosing a side note anchor spot</a></li>
-  </ul></li>
-  <li><a href="#code-blocks" id="toc-code-blocks">Code blocks</a>
-  <ul>
-  <li><a href="#numbered-and-highlighted-lines" id="toc-numbered-and-highlighted-lines">Numbered and highlighted lines</a>
-  <ul>
-  <li><a href="#line-highlight-limit" id="toc-line-highlight-limit">Line highlight limit</a></li>
-  </ul></li>
-  <li><a href="#tight-code-blocks" id="toc-tight-code-blocks">Tight code blocks</a></li>
-  </ul></li>
-  <li><a href="#math" id="toc-math">Math</a></li>
-  <li><a href="#images-tables-and-captioned-code-blocks" id="toc-images-tables-and-captioned-code-blocks">Images, tables, and captioned code blocks</a></li>
-  <li><a href="#wide-extra-wide-and-full-width" id="toc-wide-extra-wide-and-full-width">Wide, extra-wide, and full-width</a></li>
-  <li><a href="#colored-note-callouts" id="toc-colored-note-callouts">Colored note callouts</a></li>
-  <li><a href="#table-of-contents" id="toc-table-of-contents">Table of contents</a></li>
-  <li><a href="#tweaking-the-css-variables" id="toc-tweaking-the-css-variables">Tweaking the CSS variables</a></li>
-  <li><a href="#automatic-light-and-dark-theme" id="toc-automatic-light-and-dark-theme">Automatic light and dark theme</a></li>
-  <li><a href="#print-styles" id="toc-print-styles">Print styles</a></li>
-  </ul>
+  <div id="toc-container">
+    <h4 id="toc-heading">Contents</h4>
+    <ul>
+    <li><a href="#document-metadata" id="toc-document-metadata">Document metadata</a></li>
+    <li><a href="#assorted-prose-elements" id="toc-assorted-prose-elements">Assorted prose elements</a></li>
+    <li><a href="#side-notes-and-margin-notes" id="toc-side-notes-and-margin-notes">Side notes and margin notes</a>
+    <ul>
+    <li><a href="#choosing-a-side-note-anchor-spot" id="toc-choosing-a-side-note-anchor-spot">Choosing a side note anchor spot</a></li>
+    </ul></li>
+    <li><a href="#code-blocks" id="toc-code-blocks">Code blocks</a>
+    <ul>
+    <li><a href="#numbered-and-highlighted-lines" id="toc-numbered-and-highlighted-lines">Numbered and highlighted lines</a>
+    <ul>
+    <li><a href="#line-highlight-limit" id="toc-line-highlight-limit">Line highlight limit</a></li>
+    </ul></li>
+    <li><a href="#tight-code-blocks" id="toc-tight-code-blocks">Tight code blocks</a></li>
+    </ul></li>
+    <li><a href="#math" id="toc-math">Math</a></li>
+    <li><a href="#images-tables-and-captioned-code-blocks" id="toc-images-tables-and-captioned-code-blocks">Images, tables, and captioned code blocks</a></li>
+    <li><a href="#wide-extra-wide-and-full-width" id="toc-wide-extra-wide-and-full-width">Wide, extra-wide, and full-width</a></li>
+    <li><a href="#colored-note-callouts" id="toc-colored-note-callouts">Colored note callouts</a></li>
+    <li><a href="#table-of-contents" id="toc-table-of-contents">Table of contents</a></li>
+    <li><a href="#tweaking-the-css-variables" id="toc-tweaking-the-css-variables">Tweaking the CSS variables</a></li>
+    <li><a href="#automatic-light-and-dark-theme" id="toc-automatic-light-and-dark-theme">Automatic light and dark theme</a></li>
+    <li><a href="#print-styles" id="toc-print-styles">Print styles</a></li>
+    </ul>
+  </div>
 </nav>
 
-<main>
+<main id="main">
 <p>This theme supports many Pandoc Markdown features. Some features work as expected out of the box, and some require a particular markup structure. This page documents those feature and the required document structure.</p>
 <p>You might also be interested in the <a href="../kitchen-sink/">Kitchen Sink</a> page, which is more comprehensive in terms of exercising edge cases, but has almost zero explanation of what is going on. There is also a <a href="../tufte/">Kitchen Sink Tufte</a> page which showcases one example of how to re-skin the theme using the existing customization features.</p>
 <h1 id="document-metadata">Document metadata</h1>
@@ -154,8 +170,8 @@ This text is ~~strikethrough~~.</code></pre>
 - [ ] Not done yet</code></pre>
 <blockquote>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" checked="" /><em>Already done</em></li>
-<li><input type="checkbox" disabled="" /><em>Not done yet</em></li>
+<li><input type="checkbox" checked="" /><em>Already done</em></li>
+<li><input type="checkbox" /><em>Not done yet</em></li>
 </ul>
 </blockquote>
 <p>Pandoc renders task list checkboxes as disabled, so they can’t be clicked. This theme inserts a few lines of JavaScript to make them enabled in HTML but disabled with JavaScript because it is the easiest way to apply custom styles to checkboxes. If you prefer the <code>disabled</code> appearance or don’t want JavaScript, feel free to remove the <code>&lt;script&gt;</code> tag at the end of the theme template.</p>
@@ -558,17 +574,8 @@ Typing rules for System F, From PFPL Chapter 16
   <a href="..">← Return home</a>
 </p>
 </footer>
-<script>
-;(function() {
-  // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.
-  var selector = '.task-list > li > input[type="checkbox"]';
-  var checkboxes = document.querySelectorAll(selector);
-  Array.from(checkboxes).forEach((checkbox) => {
-    var wasChecked = checkbox.checked;
-    checkbox.disabled = false;
-    checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
-  });
-})();
-</script>
+
+<script defer src="/scripts/toc-active.js"></script>
+
 </body>
 </html>

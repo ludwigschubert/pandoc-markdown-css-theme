@@ -58,7 +58,8 @@ pandoc \
   --to html5+smart \
   --template=template \
   --css="$css_rel_path/theme.css" \
-  --css="$css_rel_path/skylighting-solarized-theme.css" \
+  --css="$css_rel_path/skylighting-paper-theme.css" \
+  --css="$css_rel_path/theme-additions.css" \
   --toc \
   --wrap=none \
   --output "$dest" \

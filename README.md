@@ -1,7 +1,18 @@
-# pandoc-markdown-css-theme
+# pandoc-markdown-css-theme for Katherine Lee
 
-<https://jez.io/pandoc-markdown-css-theme/>
+Based in <https://jez.io/pandoc-markdown-css-theme/>
 
+
+## Setup
+
+macOS:
+```
+brew install \
+    coreutils \
+    pandoc=2.11 \
+    jez/formulae/pandoc-sidenote \
+    watchman
+```
 ## Developing
 
 ```

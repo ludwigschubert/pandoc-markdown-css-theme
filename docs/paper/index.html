@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Paper Kitchen Sink</title>
   <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/skylighting-solarized-theme.css" />
+  <link rel="stylesheet" href="../css/skylighting-paper-theme.css" />
+  <link rel="stylesheet" href="../css/theme-additions.css" />
   <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
@@ -29,40 +30,51 @@
 <body>
 
 <header>
-<h1 class="title">Paper Kitchen Sink</h1>
-<blockquote class="metadata">
-</blockquote>
+  <h1 class="title">Paper Kitchen Sink</h1>
+<div class="metadata">
+</div>
 </header>
 
 <nav id="TOC" role="doc-toc">
     <a href="..">← Return home</a><br>
-    <strong>Contents</strong><label for="contents">⊕</label>
+    <label for="contents">
+    <svg width="32" height="24" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+      <g fill="currentColor">
+        <rect x="5" y="4" width="30" height="2" rx="1" ry="1" />
+        <rect x="5" y="13.5" width="30" height="2" rx="1" ry="1" />
+        <rect x="5" y="23" width="30" height="2" rx="1" ry="1" />
+      </g>
+    </svg>
+  </label>
   <input type="checkbox" id="contents">
-  <ul>
-  <li><a href="#prose" id="toc-prose">Prose</a></li>
-  <li><a href="#headings" id="toc-headings">Headings</a>
-  <ul>
-  <li><a href="#smaller-heading" id="toc-smaller-heading">Smaller heading</a>
-  <ul>
-  <li><a href="#even-smaller-heading" id="toc-even-smaller-heading">Even smaller heading</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#level-1-heading" id="toc-level-1-heading">Level 1 heading</a>
-  <ul>
-  <li><a href="#level-2-heading" id="toc-level-2-heading">Level 2 heading</a></li>
-  <li><a href="#another-level-2-heading" id="toc-another-level-2-heading">Another level 2 heading</a></li>
-  </ul></li>
-  <li><a href="#lists" id="toc-lists">Lists</a></li>
-  <li><a href="#code-blocks" id="toc-code-blocks">Code blocks</a></li>
-  <li><a href="#block-quotes" id="toc-block-quotes">Block quotes</a></li>
-  <li><a href="#colored-notes" id="toc-colored-notes">Colored notes</a></li>
-  <li><a href="#side-notes" id="toc-side-notes">Side notes</a></li>
-  <li><a href="#images" id="toc-images">Images</a></li>
-  <li><a href="#tables" id="toc-tables">Tables</a></li>
-  </ul>
+  <div id="toc-container">
+    <h4 id="toc-heading">Contents</h4>
+    <ul>
+    <li><a href="#prose" id="toc-prose">Prose</a></li>
+    <li><a href="#headings" id="toc-headings">Headings</a>
+    <ul>
+    <li><a href="#smaller-heading" id="toc-smaller-heading">Smaller heading</a>
+    <ul>
+    <li><a href="#even-smaller-heading" id="toc-even-smaller-heading">Even smaller heading</a></li>
+    </ul></li>
+    </ul></li>
+    <li><a href="#level-1-heading" id="toc-level-1-heading">Level 1 heading</a>
+    <ul>
+    <li><a href="#level-2-heading" id="toc-level-2-heading">Level 2 heading</a></li>
+    <li><a href="#another-level-2-heading" id="toc-another-level-2-heading">Another level 2 heading</a></li>
+    </ul></li>
+    <li><a href="#lists" id="toc-lists">Lists</a></li>
+    <li><a href="#code-blocks" id="toc-code-blocks">Code blocks</a></li>
+    <li><a href="#block-quotes" id="toc-block-quotes">Block quotes</a></li>
+    <li><a href="#colored-notes" id="toc-colored-notes">Colored notes</a></li>
+    <li><a href="#side-notes" id="toc-side-notes">Side notes</a></li>
+    <li><a href="#images" id="toc-images">Images</a></li>
+    <li><a href="#tables" id="toc-tables">Tables</a></li>
+    </ul>
+  </div>
 </nav>
 
-<main>
+<main id="main">
 <div class="note blue">
 <table>
 <colgroup>
@@ -197,12 +209,14 @@ Next line</li>
 </ol>
 <p>This is some body text between lists. This project provides CSS files and a template for using Pandoc to generate standalone HTML files. It supports most features Pandoc Markdown has to offer, and some extras.</p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />Line starts with a short bullet point<ul class="task-list">
-<li><input type="checkbox" disabled="" />First line<br />
+<li><input type="checkbox" />Line starts with a short bullet point
+<ul class="task-list">
+<li><input type="checkbox" />First line<br />
 Next line</li>
 </ul></li>
-<li><input type="checkbox" disabled="" checked="" />Line starts with a short bullet point<ul class="task-list">
-<li><input type="checkbox" disabled="" checked="" />First line, <strong>checklists are different by browser, even on same OS</strong><br />
+<li><input type="checkbox" checked="" />Line starts with a short bullet point
+<ul class="task-list">
+<li><input type="checkbox" checked="" />First line, <strong>checklists are different by browser, even on same OS</strong><br />
 Next line</li>
 </ul></li>
 </ul>
@@ -212,9 +226,9 @@ Next line</li>
 </ul>
 <!-- force break -->
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />First is unchecked<br />
+<li><input type="checkbox" />First is unchecked<br />
 Next line</li>
-<li><input type="checkbox" disabled="" checked="" />Last is checked<br />
+<li><input type="checkbox" checked="" />Last is checked<br />
 </li>
 </ul>
 <!-- force break -->
@@ -841,17 +855,8 @@ Meanwhile, <code>wide</code> will expand past the right column when the center c
   <a href="..">← Return home</a>
 </p>
 </footer>
-<script>
-;(function() {
-  // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.
-  var selector = '.task-list > li > input[type="checkbox"]';
-  var checkboxes = document.querySelectorAll(selector);
-  Array.from(checkboxes).forEach((checkbox) => {
-    var wasChecked = checkbox.checked;
-    checkbox.disabled = false;
-    checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
-  });
-})();
-</script>
+
+<script defer src="/scripts/toc-active.js"></script>
+
 </body>
 </html>

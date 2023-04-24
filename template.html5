@@ -33,24 +33,28 @@ $include-before$
 $endfor$
 
 <header>
-<h1 class="title">$title$</h1>
-<blockquote class="metadata">
+  <h1 class="title">$title$</h1>
 $if(subtitle)$
-<p class="subtitle">$subtitle$</p>
+  <p class="subtitle">$subtitle$</p>
 $endif$
+<div class="metadata">
 $if(author)$
-<p class="author">
+  <div class="author">
+  <span class="label">Author</span>
   $if(author-url)$
     <a href="$author-url$">$author$</a>
   $else$
-    $author$
+    <span>$author$</span>
   $endif$
-</p>
+  </div>
 $endif$
 $if(date)$
-<p class="date $if(toc)$before-toc$endif$"><time datetime="$date$">$date$</time></p>
+<div class="date">
+  <span class="label">Published</span>
+  <time datetime="$date$">$date$</time>
+</div>
 $endif$
-</blockquote>
+</div>
 </header>
 
 $if(toc)$
@@ -58,13 +62,24 @@ $if(toc)$
   $if(return-url)$
   <a href="$return-url$">$if(return-text)$$return-text$$else$← Return$endif$</a><br>
   $endif$
-  <strong>Contents</strong><label for="contents">⊕</label>
+  <label for="contents">
+    <svg width="32" height="24" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+      <g fill="currentColor">
+        <rect x="5" y="4" width="30" height="2" rx="1" ry="1" />
+        <rect x="5" y="13.5" width="30" height="2" rx="1" ry="1" />
+        <rect x="5" y="23" width="30" height="2" rx="1" ry="1" />
+      </g>
+    </svg>
+  </label>
   <input type="checkbox" id="contents">
-  $table-of-contents$
+  <div id="toc-container">
+    <h4 id="toc-heading">Contents</h4>
+    $table-of-contents$
+  </div>
 </nav>
 $endif$
 
-<main>
+<main id="main">
 $body$
 </main>
 
@@ -75,18 +90,13 @@ $if(return-url)$
 </p>
 </footer>
 $endif$
-<script>
-;(function() {
-  // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.
-  var selector = '.task-list > li > input[type="checkbox"]';
-  var checkboxes = document.querySelectorAll(selector);
-  Array.from(checkboxes).forEach((checkbox) => {
-    var wasChecked = checkbox.checked;
-    checkbox.disabled = false;
-    checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
-  });
-})();
-</script>
+
+<script defer src="/scripts/toc-active.js"></script>
+$if(false)$
+<script defer src="/scripts/scroll.js"></script>
+<script defer src="/scripts/checkboxes.js"></script>
+$endif$
+
 $for(include-after)$
 $include-after$
 $endfor$
