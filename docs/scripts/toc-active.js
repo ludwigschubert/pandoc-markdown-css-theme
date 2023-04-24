@@ -8,10 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const observer = new IntersectionObserver(entries => {
         console.debug(entries)
-        // IntersectionObserver's entries are ordered by their position in the DOM tree
-        // so we assume we can just chose the first intersecting heading
-        // this could be replaced by other heuristics
-        // such as: which entry is closest to center of screen etc
+        //  IntersectionObserver's entries are ordered by their position in the DOM tree
         const topmostEntry = entries.find(entry => entry.isIntersecting);
         if (!topmostEntry) return;
         console.debug(topmostEntry)
