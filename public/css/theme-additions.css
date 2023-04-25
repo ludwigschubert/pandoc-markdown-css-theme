@@ -60,11 +60,18 @@
   --figcaption-gap: 9px;
   --captioned-figure-gap: 13px;
 
-  --h1-font-size: 36px;
-  --h1-line-height: 40px;
-  --h2-font-size: 25px;
-  --h2-line-height: 32px;
+  --title-font-size: 50px;
+  --title-line-height: 55px;
+  --h1-font-size: 38px;
+  --h1-line-height: 42px;
+  --h1-margin-top: 42px;
+  --h1-margin-bottom: 14px;
+  --h2-font-size: 38px;
+  --h2-line-height: 42px;
+  --h2-margin-top: 42px;
+  --h2-margin-bottom: 14px;
 
+  --background-color: white;  /* hsl(36, 5%, 96%); */
   --color-text: hsl(210, 31%, 5%);
   --color-text-secondary: hsl(211, 14%, 25%);
   --color-sidenote: var(--color-text-secondary);

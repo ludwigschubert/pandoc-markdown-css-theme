@@ -225,7 +225,7 @@ For example, another choice dataset curators may make is whether it’s better t
 All this is to say that dataset collection and curation is an active area of research for which the answers depend heavily on the open-ended goals of generative modeling.
 ^[This is not to say that “open-ended” is necessarily bad. One exciting result from generative AI releases has been seeing the multitude of ways people have used the systems. Exciting, and perhaps unintentional.]
 
-## Conclusion & next up: Copyright and Training Data {#next}
+## Next up: Copyright and Training Data {#next}
 
 What dataset creation really boils down to is a set of choices. Datasets could look different, and they _were_ different. But today’s datasets are shaped by the present set of influences: model sizes, availability of data and compute, open-ended goals (and sometimes, a lack of desire to specify a specific goal), difficulty defining societal concepts, and business incentives.
 
