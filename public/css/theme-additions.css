@@ -75,6 +75,8 @@
     /* Make dark mode a tad more contrasty, but keep off-white */
     --background-color: black;
     --color-text: hsl(36, 24%, 95%);
+    --color-text-secondary: hsl(35, 12%, 75%);
+
   }
 }
 
