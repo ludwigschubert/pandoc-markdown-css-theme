@@ -11,6 +11,14 @@ generate standalone HTML files. It's based on [Jake Zimmermann's `pandoc-markdow
 
 # Features
 
+For the complete feature set, see the documentation. You might also want to
+view the "kitchen sink" page that is useful when developing, or the source code:
+
+[→ Documentation](features/)\
+[→ Kitchen Sink](kitchen-sink/)\
+[→ Source on GitHub](https://github.com/jez/pandoc-markdown-css-theme)\
+[→ Training Data](training-data/)
+
 A short list of headline features:
 
 [^pandoc]:
@@ -31,13 +39,6 @@ A short list of headline features:
 - [\(\LaTeX\) math](features/#math), rendered via [\(\KaTeX\)][KaTeX] in
   the browser
 - Dark mode, based on the user's default color scheme preference
-
-For the complete feature set, see the documentation. You might also want to
-view the "kitchen sink" page that is useful when developing, or the source code:
-
-[→ Documentation](features/)\
-[→ Kitchen Sink](kitchen-sink/)\
-[→ Source on GitHub](https://github.com/jez/pandoc-markdown-css-theme)
 
 The theme is fully responsive, including phones, tablets, laptops, and wide
 desktop screens. Side notes and the table of contents display inline on small
