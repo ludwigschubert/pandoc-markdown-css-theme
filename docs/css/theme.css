@@ -225,7 +225,7 @@ main {
   position: relative;
 }
 
-nav#TOC label,
+/* nav#TOC label, */
 label.margin-toggle:not(.sidenote-number),
 .sidenote-number:after,
 .sidenote:before,

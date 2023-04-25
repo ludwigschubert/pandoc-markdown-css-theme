@@ -37,6 +37,8 @@ $endfor$
 $if(subtitle)$
   <p class="subtitle">$subtitle$</p>
 $endif$
+$if(skip_meta)$
+$else$
 <div class="metadata">
 $if(authors)$
 <div class="author">
@@ -66,6 +68,8 @@ $if(date)$
 </div>
 $endif$
 </div>
+$endif$
+
 </header>
 
 $if(toc)$
@@ -86,7 +90,7 @@ $if(toc)$
 </nav>
 $endif$
 
-<main id="main">
+<main id="main" class="$mainclass$">
 $body$
 </main>
 

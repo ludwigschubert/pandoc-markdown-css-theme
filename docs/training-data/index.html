@@ -15,17 +15,7 @@
 <header>
   <h1 class="title">Generative AI</h1>
   <p class="subtitle">A series on the building blocks of generative AI and copyright issues arising</p>
-<div class="metadata">
-<div class="author">
-  <span class="label">Authors</span>
-            <a href="https://katelee168.github.io/">Katherine Lee</a>
-                <a href="https://daphnei.com/">Daphne Ippolito</a>
-      </div>
-<div class="date">
-  <span class="label">Published</span>
-  <time datetime="2023-04-28">2023-04-28</time>
-</div>
-</div>
+
 </header>
 
 <nav id="TOC" role="doc-toc">
@@ -39,19 +29,19 @@
     </h4>
   </label>
   <ul>
-  <li><a href="#why-copyright" id="toc-why-copyright">Why copyright?</a></li>
+  <li><a href="#why-care-about-copyright" id="toc-why-care-about-copyright">Why care about copyright?</a></li>
   <li><a href="#intro" id="toc-intro">How is training data constructed?</a>
   <ul>
   <li><a href="#early-datasets" id="toc-early-datasets">Early Datasets (Pre-2010)</a></li>
   <li><a href="#today-datasets" id="toc-today-datasets">Today’s datasets</a></li>
   <li><a href="#data-collection" id="toc-data-collection">Data collection</a></li>
   <li><a href="#data-curation" id="toc-data-curation">Data curation</a></li>
+  <li><a href="#next" id="toc-next">Conclusion &amp; next up: Copyright and Training Data</a></li>
   </ul></li>
-  <li><a href="#acknowledgements" id="toc-acknowledgements">Acknowledgements</a></li>
   </ul>
 </nav>
 
-<main id="main">
+<main id="main" class="">
 <p>If you’ve seen the recent TikTok trend of transforming people into historical versions of themselves<span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote"><a href="https://techcrunch.com/2022/12/01/lensa-ai-climbs-the-app-store-charts-as-its-magic-avatars-go-viral/">Lensa AI climbs the App Store charts as its ‘magic avatars’ go viral</a><br />
 <br />
 </span></span>, or had a conversation with the chatbot ChatGPT you’ve interacted with generative AI. <!--In the last year, use of generative AI has exploded. People now use it to generate songs, pose as customer service representatives, and aid in drug discovery. --> These impressive capabilities are driven by a comparable explosion of available data on the web–driven, in part, by all of us. <!--Very large datasets have played a significant role in AI progress in general over the years, but have been absolutely critical to generative AI development. --> Any media that you have posted publicly — words, images, videos, etc. — are fair game for being used as training data for these generative models.<span class="sidenote-wrapper"><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">In this case, public does not mean places like Facebook’s friends list, but does mean Twitter and Reddit.<br />
@@ -60,19 +50,29 @@
 <br />
 </span></span></p>
 <p>Welcome to an explainer series where we lay out the building blocks for generative AI models and shed some light onto the copyright issues that might arise.</p>
-<h2 id="why-copyright">Why copyright?</h2>
+<h2 id="why-care-about-copyright">Why care about copyright?</h2>
 <!-- {.unlisted} -->
 <p>Some of the data in training datasets may be copyrighted or have licenses attached. There is an active debate over whether training on copyrighted data constitutes infringement, and if an output that looks almost identical to the training data constitutes infringement. This debate centers <a href="https://www.theregister.com/2023/01/16/stability_diffusion_lawsuit/">several</a> <a href="https://www.smithsonianmag.com/smart-news/are-ai-image-generators-stealing-from-artists-180981488/">recently-filed</a> <a href="https://githubcopilotlitigation.com/">lawsuits</a> related to <a href="https://stablediffusionlitigation.com/">copyright</a> in generative AI models.</p>
 <p>Generative AI models change the landscape of what content creation could look like and questions individual ownership over and our relationship to our data. Copyright is just one lens for individuals and corporations to maintain control over their content and monetize it. Privacy issues also arise when discussing data collection for generative models. Additionally, questions of labor and compensation may also arise alongside copyright issues.</p>
 <p>In this first chapter, we’ll build an understanding of how dataset creators juggle choices for what to include in a dataset, and the implications that their choices have for the generative AI model. In later chapters, we’ll discuss copyrightable works in the training data, the model generation process, whether training or outputs are infringement, and liability that model creators / distributors might have.</p>
-<p><em>Jump to a specific chapter:</em></p>
-<ol type="1">
-<li><a href="#intro">How is training data constructed?</a></li>
-<li>What is copyrightable? [coming soon]</li>
-<li>How do you generate from generative AI models? [coming soon]</li>
-<li>Is training infringement? Do outputs infringe? [coming soon]</li>
-</ol>
+<!-- _Jump to a specific chapter:_
+
+1. [How is training data constructed?](#intro)
+1. What is copyrightable? [coming soon]
+1. How do you generate from generative AI models? [coming soon]
+1. Is training infringement? Do outputs infringe? [coming soon] -->
 <h1 id="intro">How is training data constructed?</h1>
+<div class="metadata">
+  <div class="author">
+    <span class="label">Authors</span>
+    <a href="https://katelee168.github.io/">Katherine Lee</a>
+    <a href="https://daphnei.com/">Daphne Ippolito</a>
+  </div>
+  <div class="date">
+    <span class="label">Published</span>
+    <time datetime="2023-04-28">Apr. 28, 2023</time>
+  </div>
+</div>
 <p>The direct impact training data has on the outputs of generative models, aka <em>generations</em>, makes training data design the most important set of choices model creators have to reduce the risk of copyright and privacy infringements of the resulting, generative model. <span class="sidenote-wrapper"><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">I have to couch this by saying that training dataset design is the <em>current</em> most important set of choices model creators have. There are other models in the works that are trying to reduce copyright and privacy infringements by attributing generations to specific examples in the data, or by adding noise to obscure individual data points (differential privacy), or by limiting the scope of a model to an application where copyright and privacy are less of a concern (for example, Disney training on scripts where they own all the copyrights).<br />
 <br />
 </span></span> To put it bluntly, if there are no Garfield comics in your training data, what are the odds of spontaneously generating a Garfield comic? The sheer amount of data required for modern-day model training makes it impossible for dataset curators to interact with each item in the dataset and thus impossible to know exactly the content, source, and context of each item in the dataset. While a dataset curator might be able to answer the question: “How many Garfield comics are there in the training data,” they might not be able to answer the questions: “How many fan or parody Garfield comics are there in the training data.”</p>
@@ -85,7 +85,7 @@
 <li><a href="#next"><strong>Conclusion &amp; Next: Copyright and Training Data</strong></a></li>
 </ul>
 <h2 id="early-datasets">Early Datasets (Pre-2010)</h2>
-<p><strong>Before ~2010 datasets were much smaller, had denser annotations, and required manual curation.</strong></p>
+<p><strong>Early datasets (pre-2010) were much smaller, had denser annotations, and required manual curation.</strong></p>
 <p>We’ll start our story with one of the first dataset machine learning students learn about: MNIST. <span class="sidenote-wrapper"><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote"><a href="https://www.lri.fr/~marc/Master2/MNIST_doc.pdf">About MNIST</a>. The original website seems to be password-protected: https://yann.lecun.com/exdb/mnist/.<br />
 <br />
 </span></span> First released in 1999, the dataset was built by Mixing two datasets from the National Institute of Science and Technology’s datasets of handwritten numbers. It contains only 60,000 examples. (As a point of reference, LAION-5B, an image dataset made in 2022, has 5.85 billion text-image pairs.) The dataset creators knew where all the data was from and how it was collected: all the digits in MNIST were written by either high school students or employees at the US Census Bureau. The data in MNIST is highly uniform: all the images are 32x32 pixels, presented in black-and-white, and the digits are roughly centered within the images.</p>
@@ -206,22 +206,64 @@ Est-ce French? Is this l’anglais?
 </span></span> Datasets can also be curated differently depending on the application at hand. For example, another choice dataset curators may make is whether it’s better to include mostly chat logs when creating a chat bot or if dataset creators should also include news articles or code. All this is to say that dataset collection and curation is an active area of research for which the answers depend heavily on the open-ended goals of generative modeling. <span class="sidenote-wrapper"><label for="sn-35" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-35" class="margin-toggle"/><span class="sidenote">This is not to say that “open-ended” is necessarily bad. One exciting result from generative AI releases has been seeing the multitude of ways people have used the systems. Exciting, and perhaps unintentional.<br />
 <br />
 </span></span></p>
-<h2 class="unlisted" id="next">Conclusion &amp; next up: Copyright and Training Data</h2>
+<h2 id="next">Conclusion &amp; next up: Copyright and Training Data</h2>
 <p>What dataset creation really boils down to is a set of choices. Datasets could look different, and they <em>were</em> different. But today’s datasets are shaped by the present set of influences: model sizes, availability of data and compute, open-ended goals (and sometimes, a lack of desire to specify a specific goal), difficulty defining societal concepts, and business incentives.</p>
 <p>We started this journey discussing how the choices in training data can raise copyright issues. Next in this series on generative AI, we’ll discuss what sorts of copyrightable works could be included in the training data, why they may have ended up there, and whether or not that is permissible. Additionally, we’ll discuss how different media (text, image, video, music, etc.) might require different treatment.</p>
 <!-- Instead, dataset curators typically mean that they want a dataset that creates a “good model.”
 Ultimately, datasets exist to serve the tasks we want models to do. "General purpose" is not a task that it is easy to develop a dataset for.
 Fro example, OpenAI's models are trained for the goal of being general-purpose, except if the purpose is generating hate speech.
  -->
-<h1 class="unlisted" id="what-is-copyrightable">What is copyrightable?</h1>
-<p><em>coming soon!</em></p>
-<h1 class="unlisted" id="how-do-you-generate-from-generative-ai-models">How do you generate from generative AI models?</h1>
-<p><em>coming soon!</em></p>
-<h1 class="unlisted" id="is-training-infringement-do-outputs-infringe">Is training infringement? Do outputs infringe?</h1>
-<p><em>coming soon!</em></p>
-<h1 id="acknowledgements">Acknowledgements</h1>
-<p>This discussion is fueled by years of discussions with wonderful people, including, but not limited to: <a href="https://james.grimmelmann.net/">James Grimmelman</a>, <a href="https://mimno.infosci.cornell.edu/">David Mimno</a>, <a href="https://afedercooper.info/">A. Feder Cooper</a>, <a href="https://daphnei.com/">Daphne Ippolito</a>, <a href="https://nicholas.carlini.com/">Nicholas Carlini</a>, <a href="https://floriantramer.com/">Florian Tramèr</a>, <a href="https://twitter.com/jekbradbury">James Bradbury</a>, <a href="https://www.shaynelongpre.com/">Shayne Longpre</a> and Chris Cieri</p>
-<h2 class="unlisted" id="dedication">Dedication</h2>
+<h2 class="unlisted" id="acknowledgements">Acknowledgements</h2>
+<p>This discussion is fueled by years of discussions with wonderful people, including, but not limited to: <a href="https://james.grimmelmann.net/">James Grimmelman</a>, <a href="https://mimno.infosci.cornell.edu/">David Mimno</a>, <a href="https://afedercooper.info/">A. Feder Cooper</a>, <a href="https://daphnei.com/">Daphne Ippolito</a>, <a href="https://nicholas.carlini.com/">Nicholas Carlini</a>, <a href="https://floriantramer.com/">Florian Tramèr</a>, <a href="https://twitter.com/jekbradbury">James Bradbury</a>, <a href="https://www.shaynelongpre.com/">Shayne Longpre</a> and Chris Cieri.</p>
+<!-- # What is copyrightable? -->
+<!-- ```{=html}
+<div class="metadata">
+  <div class="author">
+    <span class="label">Authors</span>
+    <a href="https://katelee168.github.io/">Katherine Lee</a>
+    <a href="https://daphnei.com/">Daphne Ippolito</a>
+  </div>
+  <div class="date">
+    <span class="label">Published</span>
+    <time datetime="2023-04-28">Apr. 28, 2023</time>
+  </div>
+</div>
+``` -->
+<!-- _coming soon!_ -->
+<!-- ## Acknowledgements {.unlisted} -->
+<!-- # How do generative AI models generate? -->
+<!-- ```{=html}
+<div class="metadata">
+  <div class="author">
+    <span class="label">Authors</span>
+    <a href="https://katelee168.github.io/">Katherine Lee</a>
+    <a href="https://daphnei.com/">Daphne Ippolito</a>
+  </div>
+  <div class="date">
+    <span class="label">Published</span>
+    <time datetime="2023-04-28">Apr. 28, 2023</time>
+  </div>
+</div>
+``` -->
+<!-- _coming soon!_ -->
+<!-- ## Acknowledgements {.unlisted} -->
+<!-- # Is training infringement? Do outputs infringe? -->
+<!-- ```{=html}
+<div class="metadata">
+  <div class="author">
+    <span class="label">Authors</span>
+    <a href="https://katelee168.github.io/">Katherine Lee</a>
+    <a href="https://daphnei.com/">Daphne Ippolito</a>
+  </div>
+  <div class="date">
+    <span class="label">Published</span>
+    <time datetime="2023-04-28">Apr. 28, 2023</time>
+  </div>
+</div>
+``` -->
+<!-- _coming soon!_ -->
+<!-- ## Acknowledgements {.unlisted} -->
+<h1 class="unlisted" id="dedication">Dedication</h1>
 <p>This piece is dedicated to the late, <a href="https://www.ldc.upenn.edu/christopher-cieri-1963-2023">Chris Cieri</a>, director of LDC, with whom we had discussed the early versions of this paper in 2021.</p>
 </main>
 

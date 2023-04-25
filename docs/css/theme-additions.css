@@ -43,13 +43,31 @@
   --side-note-number-font-family: et-book-roman-old-style, Palatino, Georgia, serif;
 
   /* Make some fonts a tad larger */
-  --nav-toc-font-size: 1rem;
-  --nav-toc-code-font-size: .8rem;
-  --side-note-font-size: .9rem;
-  --side-note-code-font-size: .8rem;
+  --font-size: 19px;
+  --line-height: 29px;
+  font-size: var(--font-size);
+  
+  --nav-toc-font-size: 17px;
+  --nav-toc-code-font-size: 15px;
+  
+  --side-note-line-height: 23px;
+  --side-note-font-size: 17px;
+  --side-note-code-font-size: 15px;
 
-  /* show side-note markers inline instead of as a superscript */
-  /* --side-note-sup-offset: 0; */
+  --figcaption-line-height: 23px;
+  --figcaption-font-size: 17px;
+  --figcaption-code-font-size: 15px;
+  --figcaption-gap: 9px;
+  --captioned-figure-gap: 13px;
+
+  --h1-font-size: 36px;
+  --h1-line-height: 40px;
+  --h2-font-size: 25px;
+  --h2-line-height: 32px;
+
+  --color-text: hsl(210, 31%, 5%);
+  --color-text-secondary: hsl(211, 14%, 25%);
+  --color-sidenote: var(--color-text-secondary);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -109,6 +127,10 @@ figure.centered {
   text-align: center;
 }
 
+figcaption {
+  /* font-weight: bold; */
+}
+
 /* figcaptions are center-aligned, which screws with sidenote formatting */
 figcaption .sidenote {
   text-align: left;
@@ -116,7 +138,7 @@ figcaption .sidenote {
   font-size: var(--side-note-font-size);
 }
 
-figcaption  .sidenote-number:after {
+figcaption .sidenote-number:after {
   font-weight: inherit;
 }
 
@@ -144,7 +166,8 @@ figcaption  .sidenote-number:after {
 }
 
 .metadata .label {
-  font-size: .75em;
+  font-size: .67em;
+  font-weight: bold;
   text-transform: uppercase;
   color: var(--color-text-secondary);
 }
@@ -220,7 +243,7 @@ nav#TOC a:target {
   }
 
   nav#TOC label {
-    height: 32px;
+    /* height: 32px; */
     display: flex;
     align-items: center;
     color: var(--color-text-secondary);
@@ -229,12 +252,11 @@ nav#TOC a:target {
   /* styles from theme.css which are usually only applied on wider viewports */
 
   nav#TOC ul {
-    margin: 6px;
+    margin: 0 .75em
   }
 
-  nav#TOC>ul {
-    margin-left: 0;
-    margin-right: 0;
+  nav#TOC > ul {
+    margin: 1em 0;
   }
 
   nav#TOC li {
