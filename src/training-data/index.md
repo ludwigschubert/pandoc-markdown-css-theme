@@ -172,7 +172,7 @@ In one popular language dataset, the Pile, the dataset creators chose to include
 
 
 <figure>
-  <img src="images/pile-composition.png" alt="Data composition within the Pile">
+  <img src="images/the-pile-treemap.svg" alt="Data composition within the Pile" style="color: var(--color-text);">
   <figcaption>[The Pile](http://arxiv.org/abs/2101.00027) is made up of many smaller datasets. Many of these components are web-scrapes focused on a specific domain, such as Wikipedia, StackExchange, USPTO (United States Patent and Trademark Office), and ArXiv. Some components, like Enron Emails,  EuroParl ^[“Proceedings of the European Parliament in 21
 European languages from 1996 until 2012” ([The Pile](http://arxiv.org/abs/2101.00027)).], and Project Gutenberg ^[Collection of out-of-copyright books available online.] are not explicitly scraped from the web.</figcaption>
 </figure>
